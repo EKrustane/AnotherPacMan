@@ -66,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +94,54 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Notes\project_notes.txt" />
+    <None Include="Resources\GameOver.bmp" />
+    <None Include="Resources\score_1600.png" />
+    <None Include="Resources\score_800.png" />
+    <None Include="Resources\score_400.png" />
+    <None Include="Resources\score_200.png" />
+    <None Include="Resources\pacman_up_4.png" />
+    <None Include="Resources\pacman_up_3.png" />
+    <None Include="Resources\pacman_up_2.png" />
+    <None Include="Resources\pacman_up_1.png" />
+    <None Include="Resources\pacman_right_4.png" />
+    <None Include="Resources\pacman_right_3.png" />
+    <None Include="Resources\pacman_right_2.png" />
+    <None Include="Resources\pacman_right_1.png" />
+    <None Include="Resources\pacman_melt_14.png" />
+    <None Include="Resources\pacman_melt_13.png" />
+    <None Include="Resources\pacman_melt_12.png" />
+    <None Include="Resources\pacman_melt_11.png" />
+    <None Include="Resources\pacman_melt_10.png" />
+    <None Include="Resources\pacman_melt_9.png" />
+    <None Include="Resources\pacman_melt_8.png" />
+    <None Include="Resources\pacman_melt_7.png" />
+    <None Include="Resources\pacman_melt_6.png" />
+    <None Include="Resources\pacman_melt_5.png" />
+    <None Include="Resources\pacman_melt_4.png" />
+    <None Include="Resources\pacman_melt_3.png" />
+    <None Include="Resources\pacman_melt_2.png" />
+    <None Include="Resources\pacman_melt_1.png" />
+    <None Include="Resources\pacman_melt_0.png" />
+    <None Include="Resources\pacman_left_4.png" />
+    <None Include="Resources\pacman_left_3.png" />
+    <None Include="Resources\pacman_left_2.png" />
+    <None Include="Resources\pacman_left_1.png" />
+    <None Include="Resources\pacman_down_4.png" />
+    <None Include="Resources\pacman_down_3.png" />
+    <None Include="Resources\pacman_down_2.png" />
+    <None Include="Resources\pacman_down_1.png" />
+    <None Include="Resources\food_4.png" />
+    <None Include="Resources\food_3.png" />
+    <None Include="Resources\food_2.png" />
+    <None Include="Resources\food_1.png" />
+    <None Include="Resources\enemy_up_2.png" />
+    <None Include="Resources\enemy_up_1.png" />
+    <None Include="Resources\enemy_right_2.png" />
+    <None Include="Resources\enemy_right_1.png" />
+    <None Include="Resources\enemy_left_2.png" />
+    <None Include="Resources\enemy_left_1.png" />
+    <None Include="Resources\enemy_down_2.png" />
+    <None Include="Resources\enemy_down_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

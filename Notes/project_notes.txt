@@ -2,9 +2,10 @@
 
 1.Create classes(Form,Area,Hero,Enemy,Food)
 2.Add keyboard (WASD) controls movement logic
-3.Enemy movement logic
-4.Food logic
-5.Collisions
-6.Scoring with animation
-7.Level map design
-8.Finalize, publish and realease beta
+3.Hero movement logic
+4.Enemy movement logic
+5.Food logic
+6.Collisions
+7.Scoring with animation
+8.Level map design
+9.Finalize, publish and realease beta
