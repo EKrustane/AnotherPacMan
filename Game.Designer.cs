@@ -77,8 +77,9 @@
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.buttonYes);
             this.Controls.Add(this.pictureBoxGameOver);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
-            this.Text = "Form1";
+            this.Text = "PACMAN";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameOver)).EndInit();
             this.ResumeLayout(false);
 

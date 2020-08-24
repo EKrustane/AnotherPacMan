@@ -21,10 +21,10 @@ namespace AnotherPacMan
         public Hero()
         {
             InitializeHero();
-            InitalizeAnimationTimer();
+            InitializeAnimationTimer();
         }
 
-        private void InitalizeAnimationTimer()
+        private void InitializeAnimationTimer()
         {
             animationTimer = new Timer();
             animationTimer.Interval = 200;

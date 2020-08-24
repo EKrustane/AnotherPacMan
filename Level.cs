@@ -17,7 +17,7 @@ namespace AnotherPacMan
 
         private void InitalizeLevel()
         {
-            this.BackColor = Color.DeepSkyBlue;
+            this.BackColor = Color.Black;
             this.Size = new Size(400, 400);
             this.Location = new Point(40, 30);
             this.Name = "Level";

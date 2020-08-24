@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>3d-pixel-ghost-red.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,7 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3d-pixel-ghost-red.ico" />
     <Content Include="Notes\project_notes.txt" />
+    <None Include="Resources\pacman ready.png" />
     <None Include="Resources\GameOver.bmp" />
     <None Include="Resources\score_1600.png" />
     <None Include="Resources\score_800.png" />
