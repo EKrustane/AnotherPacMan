@@ -32,6 +32,7 @@
             this.pictureBoxGameOver = new System.Windows.Forms.PictureBox();
             this.buttonYes = new System.Windows.Forms.Button();
             this.buttonNo = new System.Windows.Forms.Button();
+            this.labelScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameOver)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,11 +70,22 @@
             this.buttonNo.Visible = false;
             this.buttonNo.Click += new System.EventHandler(this.buttonNo_Click);
             // 
+            // labelScore
+            // 
+            this.labelScore.AutoSize = true;
+            this.labelScore.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.labelScore.Location = new System.Drawing.Point(12, 9);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(105, 33);
+            this.labelScore.TabIndex = 3;
+            this.labelScore.Text = "label1";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 633);
+            this.Controls.Add(this.labelScore);
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.buttonYes);
             this.Controls.Add(this.pictureBoxGameOver);
@@ -82,6 +94,7 @@
             this.Text = "PACMAN";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGameOver)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -90,6 +103,7 @@
         private System.Windows.Forms.PictureBox pictureBoxGameOver;
         private System.Windows.Forms.Button buttonYes;
         private System.Windows.Forms.Button buttonNo;
+        private System.Windows.Forms.Label labelScore;
     }
 }
 

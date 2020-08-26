@@ -13,12 +13,14 @@ namespace AnotherPacMan
     public partial class Game : Form
     {
         private int initialEnemyCount = 0;
+        private int score = 0;
         private Random rand = new Random();
         private Level level = new Level();
         private Hero hero = new Hero();
         private Food food = new Food();
         private Timer mainTimer = null;
         private Timer enemySpawningTimer = null;
+        private Timer gameOverTimer = null;
         private List<Enemy> enemies = new List<Enemy>();
         private PictureBox startPicture=new PictureBox();
         private Button buttonEasy = new Button();
@@ -28,11 +30,16 @@ namespace AnotherPacMan
         public Game()
         {
             InitializeComponent();
+            InitializeAll();
+            //PictureStartGame();   //neiet sākumā hero, ja šī nav, tad neparādās atšķirība starp līmeņiem 
+            
+        }
+
+        private void InitializeAll()
+        {
             InitializeGame();
             InitializeMainTimer();
             InitializeEnemySpawningTimer();
-            //PictureStartGame();
-            
         }
 
         private void RestartGame()
@@ -60,6 +67,8 @@ namespace AnotherPacMan
 
             //adding food to the game
             AddFood();
+
+            UpdateScoreLabel();
         }
 
         private void AddHero()
@@ -82,6 +91,21 @@ namespace AnotherPacMan
             food.BringToFront();
         }
 
+        private void AddEnemies(int enemyCount)
+        {
+            Enemy enemy;
+            for (int i = 0; i < enemyCount; i++)
+            {
+                enemy = new Enemy();
+                enemy.Location = new Point(rand.Next(100, 500), rand.Next(100, 500));
+                enemy.SetDirection(rand.Next(1, 5));
+                enemies.Add(enemy);
+                this.Controls.Add(enemy);
+                enemy.Parent = level;
+                enemy.BringToFront();
+            }
+        }
+
         private void FoodLocation()
         {
             food.Location = new Point(rand.Next(100, 400), rand.Next(100, 400));
@@ -93,6 +117,16 @@ namespace AnotherPacMan
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Interval = 20;
             mainTimer.Start();
+        }
+
+        private void MainTimer_Tick(object sender, EventArgs e)
+        {
+            MoveHero();
+            HeroBorderCollision();
+            MoveEnemies();
+            EnemyBorderCollision();
+            HeroEnemyColission();
+            HeroFoodCollision();
         }
 
         private void InitializeEnemySpawningTimer()
@@ -121,15 +155,6 @@ namespace AnotherPacMan
                 enemy.Left += enemy.HorizontalVelocity;
                 enemy.Top += enemy.VerticalVelocity;
             }
-        }
-        private void MainTimer_Tick(object sender, EventArgs e)
-        {
-            MoveHero();
-            HeroBorderCollision();
-            MoveEnemies();
-            EnemyBorderCollision();
-            HeroEnemyColission();
-            HeroFoodCollision();
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
@@ -182,22 +207,52 @@ namespace AnotherPacMan
 
         private void HeroFoodCollision()
         {
-            if(hero.Bounds.IntersectsWith(food.Bounds))
+            if (hero.Bounds.IntersectsWith(food.Bounds))
             {
-                hero.Step += 1;
+                hero.Step += 0;
+                score += 200;
+                UpdateScoreLabel();
+                AnimateScore(200, food.Left, food.Top);
+
+                if (food.Type == 4)
+                {
+                    hero.PredatorModeOn();
+                }
+
                 RespawnFood();
             }
         }
 
-        private void RespawnFood()
+        private void HeroEnemyColission()
         {
-            FoodLocation();
-            food.SetType(rand.Next(1, 5));
+            Enemy enemy;
+            for (int enemyCounter = 0; enemyCounter < enemies.Count; enemyCounter++)
+            {
+                enemy = enemies[enemyCounter];
+                if (enemy.Bounds.IntersectsWith(hero.Bounds))
+                {
+                    if (hero.PredatorMode == true)
+                    {
+                        AnimateScore(400, enemy.Left, enemy.Top);
+                        enemies.RemoveAt(enemyCounter);
+                        enemy.Dispose();
+                        score += 400;
+                        UpdateScoreLabel();
+                    }
+                    else
+                    {
+                        hero.Melt();
+                        InitializeGameOverTimer();
+                    }
+
+                }
+            }
+
         }
 
         private void EnemyBorderCollision()
         {
-            foreach(var enemy in enemies)
+            foreach (var enemy in enemies)
             {
                 if (enemy.Top < level.Top - enemy.Width) //From "up" to "down"
                 {
@@ -217,20 +272,24 @@ namespace AnotherPacMan
                 }
             }
         }
-        
-        private void AddEnemies(int enemyCount)
+
+        private void AnimateScore(int scoreValue, int x, int y)
         {
-            Enemy enemy;
-            for (int i = 0; i < enemyCount; i++)
-            {
-                enemy = new Enemy();
-                enemy.Location = new Point(rand.Next(100, 500), rand.Next(100, 500));
-                enemy.SetDirection(rand.Next(1, 5));
-                enemies.Add(enemy);
-                this.Controls.Add(enemy);
-                enemy.Parent = level;
-                enemy.BringToFront();
-            }
+            Score scoreImage = new Score(scoreValue);
+            this.Controls.Add(scoreImage);
+            scoreImage.Parent = level;
+            scoreImage.Location = new Point(x, y);
+        }
+
+        private void UpdateScoreLabel()
+        {
+            labelScore.Text = "Score: " + score;
+        }
+
+        private void RespawnFood()
+        {
+            FoodLocation();
+            food.SetType(rand.Next(1, 5));
         }
 
         private void SetRandomEnemyDirection()
@@ -241,12 +300,24 @@ namespace AnotherPacMan
             }
         }
 
-        private void GameOver()
+        private void InitializeGameOverTimer()
         {
+            gameOverTimer = new Timer();
+            gameOverTimer.Tick += GameOverTimer_Tick;
+            gameOverTimer.Interval = 1500;
+            gameOverTimer.Start();
+        }
+
+        private void GameOverTimer_Tick(object sender, EventArgs e)
+        {
+            gameOverTimer.Stop();
             mainTimer.Stop();
+            GameOver();
+        }
+
+        public void GameOver()
+        {
             PictureBoxGameOver();
-            ButtonYes();
-            ButtonNo();
         }
 
         private void PictureBoxGameOver()
@@ -256,17 +327,8 @@ namespace AnotherPacMan
             pictureBoxGameOver.Size = level.Size;
             pictureBoxGameOver.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxGameOver.BringToFront();
-        }
-
-        private void HeroEnemyColission()
-        {
-            foreach (var enemy in enemies)
-            {
-                if (enemy.Bounds.IntersectsWith(hero.Bounds))
-                {
-                    GameOver();
-                }
-            }
+            ButtonYes();
+            ButtonNo();
         }
 
         private void ButtonYes()
@@ -289,7 +351,7 @@ namespace AnotherPacMan
 
         private void buttonYes_Click(object sender, EventArgs e)
         {
-            PictureStartGame();
+            RestartGame();
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
@@ -357,21 +419,21 @@ namespace AnotherPacMan
         {
             initialEnemyCount = 1;
             VisibleFalse();
-            RestartGame();
+            InitializeAll();
         }
 
         private void buttonMedium_Click(object sender, EventArgs e)
         {
             initialEnemyCount = 4;
             VisibleFalse();
-            RestartGame();
+            InitializeAll();
         }
 
         private void buttonHard_Click(object sender, EventArgs e)
         {
             initialEnemyCount = 10;
             VisibleFalse();
-            RestartGame();
+            InitializeAll();
         }
 
         private void VisibleFalse()
