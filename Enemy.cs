@@ -82,5 +82,13 @@ namespace AnotherPacMan
             }
         }
 
+        public void EnemyPredationMode()
+        {
+            this.BackColor = Color.Transparent;
+            this.Size = new Size(20, 20);
+            this.Image = (Image)Properties.Resources.ResourceManager.GetObject("enemy");
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
     }
 }

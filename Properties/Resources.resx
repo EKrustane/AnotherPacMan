@@ -118,6 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="blue_down_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_down_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_down_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_down_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_down_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_down_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_down_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_down_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_left_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_left_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_left_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_left_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_left_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_left_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_right_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_right_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_right_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_right_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_right_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_up_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_up_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_up_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_up_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_up_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_up_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_up_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_up_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enemy_down_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enemy_down_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

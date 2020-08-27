@@ -57,7 +57,7 @@ namespace AnotherPacMan
         {
             pacmanMeltTimer = new Timer();
             pacmanMeltTimer.Tick += PacmanMeltTimer_Tick;
-            pacmanMeltTimer.Interval = 200;
+            pacmanMeltTimer.Interval = 100;
             pacmanMeltTimer.Start();
         }
 
@@ -92,14 +92,30 @@ namespace AnotherPacMan
 
         private void Animate()
         {
-            string imageName = "pacman_" + this.Direction + "_" + frameCounter.ToString();
-            this.Image = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
-            this.SizeMode = PictureBoxSizeMode.StretchImage;
-            frameCounter++;
-            if(frameCounter>4)
+            if(PredatorMode==true)
             {
-                frameCounter = 1;
+                string imageName = "blue_" + this.Direction + "_" + frameCounter.ToString();
+                this.Image = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
+                this.SizeMode = PictureBoxSizeMode.StretchImage;
+                frameCounter++;
+                if (frameCounter > 4)
+                {
+                    frameCounter = 1;
+                }
+                
             }
+            else
+            {
+                string imageName = "pacman_" + this.Direction + "_" + frameCounter.ToString();
+                this.Image = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
+                this.SizeMode = PictureBoxSizeMode.StretchImage;
+                frameCounter++;
+                if (frameCounter > 4)
+                {
+                    frameCounter = 1;
+                }
+            }
+            
         }
         private void InitializeHero()
         {
@@ -107,6 +123,18 @@ namespace AnotherPacMan
             this.Size = new Size(30, 30);
             this.Location = new Point(200, 200);
             this.Name = "Pacman";
+        }
+
+        public void AnimatePredatorMode()
+        {
+            string imageName = "blue_" + this.Direction + "_" + frameCounter.ToString();
+            this.Image = (Image)Properties.Resources.ResourceManager.GetObject(imageName);
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+            frameCounter++;
+            if (frameCounter > 4)
+            {
+                frameCounter = 1;
+            }
         }
 
     }

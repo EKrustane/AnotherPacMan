@@ -104,6 +104,23 @@
   <ItemGroup>
     <Content Include="3d-pixel-ghost-red.ico" />
     <Content Include="Notes\project_notes.txt" />
+    <None Include="Resources\blue_up_4.png" />
+    <None Include="Resources\blue_up_3.png" />
+    <None Include="Resources\blue_up_2.png" />
+    <None Include="Resources\blue_up_1.png" />
+    <None Include="Resources\blue_right_4.png" />
+    <None Include="Resources\blue_right_3.png" />
+    <None Include="Resources\blue_right_2.png" />
+    <None Include="Resources\blue_right_1.png" />
+    <None Include="Resources\blue_left_4.png" />
+    <None Include="Resources\blue_left_3.png" />
+    <None Include="Resources\blue_left_2.png" />
+    <None Include="Resources\blue_left_1.png" />
+    <None Include="Resources\blue_down_4.png" />
+    <None Include="Resources\blue_down_3.png" />
+    <None Include="Resources\blue_down_2.png" />
+    <None Include="Resources\blue_down_1.png" />
+    <None Include="Resources\enemy.png" />
     <None Include="Resources\pacman ready.png" />
     <None Include="Resources\GameOver.bmp" />
     <None Include="Resources\score_1600.png" />

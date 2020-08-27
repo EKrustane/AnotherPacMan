@@ -30,16 +30,11 @@ namespace AnotherPacMan
         public Game()
         {
             InitializeComponent();
-            InitializeAll();
-            //PictureStartGame();   //neiet sākumā hero, ja šī nav, tad neparādās atšķirība starp līmeņiem 
-            
-        }
-
-        private void InitializeAll()
-        {
             InitializeGame();
             InitializeMainTimer();
             InitializeEnemySpawningTimer();
+            //PictureStartGame();   //neiet sākumā hero, ja šī nav, tad neparādās atšķirība starp līmeņiem 
+            
         }
 
         private void RestartGame()
@@ -229,6 +224,10 @@ namespace AnotherPacMan
             for (int enemyCounter = 0; enemyCounter < enemies.Count; enemyCounter++)
             {
                 enemy = enemies[enemyCounter];
+                if (hero.PredatorMode == true)
+                {
+                    enemies[enemyCounter].EnemyPredationMode();
+                }
                 if (enemy.Bounds.IntersectsWith(hero.Bounds))
                 {
                     if (hero.PredatorMode == true)
@@ -304,7 +303,7 @@ namespace AnotherPacMan
         {
             gameOverTimer = new Timer();
             gameOverTimer.Tick += GameOverTimer_Tick;
-            gameOverTimer.Interval = 1500;
+            gameOverTimer.Interval = 1200;
             gameOverTimer.Start();
         }
 
@@ -417,23 +416,20 @@ namespace AnotherPacMan
 
         private void buttonEasy_Click(object sender, EventArgs e)
         {
-            initialEnemyCount = 1;
             VisibleFalse();
-            InitializeAll();
+            initialEnemyCount = 1;
         }
 
         private void buttonMedium_Click(object sender, EventArgs e)
         {
-            initialEnemyCount = 4;
             VisibleFalse();
-            InitializeAll();
+            initialEnemyCount = 4;
         }
 
         private void buttonHard_Click(object sender, EventArgs e)
         {
-            initialEnemyCount = 10;
             VisibleFalse();
-            InitializeAll();
+            initialEnemyCount = 10;
         }
 
         private void VisibleFalse()
